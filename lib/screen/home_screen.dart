@@ -90,11 +90,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const Gap(40),
                   AppGradientButton(
-                    title: "Start Game",
+                    title: "New Game",
                     colorOne: const Color(0xffD82987),
                     colorTwo: const Color(0xffA73BED),
                     onPressed: () {
-                      context.push('/game');
+                      context.push('/home/game');
                     },
                   ),
                   const Gap(12),
@@ -105,6 +105,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const Gap(12),
                   AppGradientButton(
+                    onPressed: () {
+                      context.push('/home/leaderboard');
+                    },
                     title: "Leaderboard",
                     colorOne: const Color(0xff2DD382),
                     colorTwo: const Color(0xff25A5E0),

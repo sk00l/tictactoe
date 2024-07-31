@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tic_tac/screen/game_screen.dart';
 import 'package:tic_tac/screen/home_screen.dart';
+import 'package:tic_tac/screen/leader_board.dart';
 import 'package:tic_tac/screen/login_screen.dart';
 import 'package:tic_tac/screen/shared/firebase_user.dart';
 
@@ -30,11 +31,22 @@ class AppRouter {
           final User? user = getCurrentUser();
           return user == null ? '/' : null;
         },
+        routes: [
+          GoRoute(
+            path: 'leaderboard',
+            builder: (context, state) => const LeaderBoardScreen(),
+          ),
+          GoRoute(
+            path: 'game',
+            builder: (context, state) => const GameScreen(),
+          ),
+        ],
       ),
-      GoRoute(
-        path: '/game',
-        builder: (context, state) => const GameScreen(),
-      ),
+
+      // GoRoute(
+      //   path: '/leaderboard',
+      //   builder: (context, state) => const LeaderBoardScreen(),
+      // ),
     ],
   );
 }

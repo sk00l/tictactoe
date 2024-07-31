@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:tic_tac/constants/firebase_constants.dart';
-import 'package:tic_tac/data/models/user_model.dart';
+import 'package:tic_tac/data/models/user/user_model.dart';
 
 class AuthenticaionRepsitory {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -48,6 +48,8 @@ class AuthenticaionRepsitory {
     return null;
   }
 
+  //save thr google user details to firestore
+
   Future<void> saveUserDetails(UserModel userModel) async {
     try {
       await _firestore
@@ -58,6 +60,8 @@ class AuthenticaionRepsitory {
       log("Error at ${e.toString()}");
     }
   }
+
+  //signout
 
   Future<void> singOut() async {
     await _firebaseAuth.signOut();
